@@ -16,6 +16,10 @@ class MyProfilePage extends React.Component {
     }
 
     componentDidMount() {
+        this.callImgs()
+    }
+
+    callImgs = () => {
         axios({
             method: 'GET',
             url: 'https://insta.nextacademy.com/api/v1/images/me',
@@ -33,14 +37,6 @@ class MyProfilePage extends React.Component {
             .catch(error => {
                 console.log('ERROR: ', error.result)
             })
-    }
-
-    addNewImg = (img) => {
-        const {myImgs} = this.state
-        const myImgsNew = [...myImgs]
-        this.setState=({
-            myImgs: myImgsNew.push(img)
-        })
     }
 
     render() {
@@ -66,7 +62,7 @@ class MyProfilePage extends React.Component {
                             <div className="col-md-9">
                                 <h6 className="mt-5 pt-3 username">{localStorage.getItem('user')}</h6>
                                 <div className="d-flex ml-4 mt-5 justify-content-start align-items-center">
-                                    <UploadPage addNewImg={(img)=>this.addNewImg(img)}/>
+                                    <UploadPage callImgs={this.callImgs}/>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +87,7 @@ class MyProfilePage extends React.Component {
                         <div className="col-md-9">
                             <h6 className="mt-5 pt-3 username">{localStorage.getItem('user')}</h6>
                             <div className="d-flex ml-4 mt-5 justify-content-start align-items-center">
-                                <UploadPage addNewImg={(img)=>this.addNewImg(img)}/>
+                                <UploadPage callImgs={this.callImgs}/>
                             </div>
                         </div>
                     </div>

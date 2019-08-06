@@ -51,7 +51,7 @@ class UploadPage extends React.Component {
                         previewImage: null,
                         imageFile: null
                     })
-                    this.props.addNewImg(response.data.image_url)
+                    this.props.callImgs()
                 }
             })
             .catch(error => {
@@ -78,6 +78,7 @@ class UploadPage extends React.Component {
                         message={this.state.message}
                         handleSubmit={this.handleSubmit}
                         isLoading = {this.props.isLoading}
+                        callImgs = {this.props.callImgs}
                     />
                 }
             </div>

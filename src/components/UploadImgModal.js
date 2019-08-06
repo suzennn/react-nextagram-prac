@@ -23,7 +23,7 @@ class UploadImgModal extends React.Component {
                                 {previewImage? (
                                     <img src={previewImage} width="300px" height="300px"/>
                                 ):(
-                                    <div height="300px" width="300px" className="bg-info text-center text-muted">
+                                    <div height="300px" width="300px" className="bg-light text-center text-muted">
                                         {message? message: 'Live Preview'}
                                     </div>
                                 )}
